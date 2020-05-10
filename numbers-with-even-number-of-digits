@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findNumbers = function(nums) {
+    let i, c, b = 0;
+  let len = nums.length;
+  
+  for(i = 0; i < len; i++) {
+    c = 0
+    while(nums[i] >= 1) {
+      c++;
+      nums[i] = nums[i]/ 10
+    }
+    
+    if(c % 2 === 0) b++;
+  }
+  return b;
+};
