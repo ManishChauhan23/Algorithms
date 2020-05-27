@@ -1,0 +1,21 @@
+var productExceptSelf = function (arr) {
+  let len = arr.length;
+  let leftArray = [];
+  let rightArray = [];
+  leftArray[0] = 1;
+  rightArray[len - 1] = 1;
+  let result = [];
+
+  for (let i = 1; i < len; i++) {
+    leftArray[i] = leftArray[i - 1] * arr[i - 1]
+  }
+
+  for (let j = len - 2; j >= 0; j--) {
+    rightArray[j] = rightArray[j + 1] * arr[j + 1]
+  }
+  
+  for (let m = 0; m < len; m++) {
+    result[m] = leftArray[m] * rightArray[m]
+  }
+  return result;
+};
