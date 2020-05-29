@@ -1,0 +1,34 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+
+var lengthOfLongestSubstring = function (s) {
+    let len = s.length;
+    if (len === 0) return 0;
+    if (len === 1) return 1;
+    
+    let map = {}, temp = {};
+    let i, k;
+    let longestSubstring = 0;
+    let count;
+
+    for (i = 0; i < len; i++) {
+        if(!map.hasOwnProperty(s[i])) map[s[i]] = true
+    }
+
+    for (i = 0; i < len - 1; i++) {
+        count = 0;
+        temp = Object.assign({}, map);
+        for (k = i; k < len; k++) {
+            if (temp[s[k]] === true) {
+                temp[s[k]] = false;
+                count++;
+                longestSubstring = Math.max(longestSubstring, count);
+            } else {
+                break;
+            }
+        }
+    }
+    return longestSubstring;
+};
