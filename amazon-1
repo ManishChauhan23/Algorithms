@@ -8,7 +8,7 @@ var lengthOfLongestSubstring = function (s) {
     if (len === 0) return 0;
     if (len === 1) return 1;
     
-    let map = {}, temp = {};
+    let map = {}, temp;
     let i, k;
     let longestSubstring = 0;
     let count;
