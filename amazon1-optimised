@@ -1,0 +1,16 @@
+lengthOfLongestSubstring = function (s) {
+    let maxSubstring = "";
+    let maxLength = 0;
+    for (let i = 0; i < s.length; i++) {
+        let charIndex = maxSubstring.indexOf(s.charAt(i))
+        if (charIndex < 0) {
+            maxSubstring += s.charAt(i);
+            maxLength = Math.max(maxLength, maxSubstring.length);
+        } else {
+            //reset the maxSubstring to the substring after the first repeated character
+            maxSubstring = maxSubstring.substring(charIndex + 1) + s.charAt(i);
+            console.log(maxSubstring, "maxSubstring")
+        }
+    }
+    return maxLength
+}
