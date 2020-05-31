@@ -1,0 +1,25 @@
+var merge = function(nums1, m, nums2, n) {
+    nums_copy = [...nums1.slice(0,m)]
+    nums1.length = 0
+    let p = 0
+    let q = 0
+    while( p < m && q < n){
+        if (nums_copy[p] < nums2[q]) {
+            nums1.push(nums_copy[p])
+            p = p + 1 
+        }
+        else {
+            nums1.push(nums2[q])
+            q = q + 1  
+        }
+            
+    }   
+    if (p < m) {
+        nums1.push(...nums_copy.slice(p))
+    }
+
+    if (q < n ){
+        nums1.push(...nums2.slice(q))
+    }
+    console.log(nums1)
+};
