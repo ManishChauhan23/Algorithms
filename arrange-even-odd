@@ -1,0 +1,19 @@
+const a = [3, 2, 6, 4, 1, 9, 7];
+
+function evenOdd(a) {
+    let result = [];
+    let k = 0, m = a.length - 1, i, j;
+    for (i = 0, j = a.length - 1; i < j; i++, j--) {
+        if (a[i] % 2 === 0) {
+            result[k] = a[i];
+            k++
+        };
+        if (a[j] % 2 === 1) {
+            result[m] = a[i];
+            m--;
+        };
+        if (i === j) result[k] = a[i];
+
+    };
+    return result;
+}
